@@ -34,3 +34,8 @@ def run(data):
     print("\nExecuting cashloan model...")
     cashloan_model.execute()
     print(f"[green]Cash Flow[/green] = ${cashloan_model.Outputs.cf_after_tax_cash_flow[1]:,.2f}")
+
+    return {'battery': battery_model.Outputs.export(), 'grid': grid_model.Outputs.export(), 'utilityrate': utilityrate_model.Outputs.export(), 'cashloan': cashloan_model.Outputs.export()}
+
+if __name__ == '__main__':
+    run({'load': []})
